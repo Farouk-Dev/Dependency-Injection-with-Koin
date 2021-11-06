@@ -1,5 +1,6 @@
 package com.raywenderlich.spacedaily.di
 
+import com.raywenderlich.spacedaily.network.NasaApiInterface
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -37,5 +38,8 @@ val networkModule = module {
       .addConverterFactory(MoshiConverterFactory.create(get()))
       .client(get())
       .build()
+  }
+  single {
+    get<Retrofit>().create(NasaApiInterface::class.java)
   }
 }
