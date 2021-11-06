@@ -7,6 +7,8 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.BuildConfig
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
+import retrofit2.Retrofit
+import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit.SECONDS
 
 val networkModule = module {
@@ -29,5 +31,11 @@ val networkModule = module {
     Moshi.Builder()
       .add(KotlinJsonAdapterFactory()).build()
 
+  }
+  single {
+    Retrofit.Builder().baseUrl(get<String>(named("BASE_URL")))
+      .addConverterFactory(MoshiConverterFactory.create(get()))
+      .client(get())
+      .build()
   }
 }
