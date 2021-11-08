@@ -1,11 +1,11 @@
 package com.raywenderlich.spacedaily.di
 
+import com.raywenderlich.spacedaily.BuildConfig
 import com.raywenderlich.spacedaily.network.NasaApiInterface
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.koin.android.BuildConfig
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit

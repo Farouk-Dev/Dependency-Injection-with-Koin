@@ -8,6 +8,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.koin.core.context.startKoin
@@ -51,6 +52,10 @@ class NetworkTest : KoinTest {
   @Test
   fun `test httpClient created`() {
     assertNotNull(httpClient)
+    assertTrue(httpClient.connectTimeoutMillis==30000)
+    assertTrue(httpClient.readTimeoutMillis==30000)
+    assertTrue(httpClient.writeTimeoutMillis==30000)
+    assertTrue(httpClient.interceptors.size==1)
   }
 
   @Test
