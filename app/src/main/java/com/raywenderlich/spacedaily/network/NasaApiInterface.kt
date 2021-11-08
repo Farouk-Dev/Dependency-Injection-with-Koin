@@ -23,7 +23,7 @@ package com.raywenderlich.spacedaily.network
 
 import retrofit2.http.GET
 
-const val API_KEY = "Sbvm1ly3ZgmeZUeASUaUWG01icWgmnAQI2UyyoXD"
+const val API_KEY = "2KzG0YLrgCJp52OELwLIRpTRPpQtVehuTzpeghcd"
 
 interface NasaApiInterface {
   @GET("apod?api_key=$API_KEY")

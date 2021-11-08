@@ -13,7 +13,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit.SECONDS
 
 val networkModule = module {
-  single(named("BASE_URL")) { "https://api.nasa.gov/plantary/" }
+  single(named("BASE_URL")) { "https://api.nasa.gov/planetary/" }
   single {
     val interceptor = HttpLoggingInterceptor()
     interceptor.level = HttpLoggingInterceptor.Level.BODY
