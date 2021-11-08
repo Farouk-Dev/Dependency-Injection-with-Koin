@@ -6,7 +6,10 @@ import com.squareup.moshi.Moshi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.junit.After
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Before
+import org.junit.Test
 import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
 import org.koin.core.qualifier.named
@@ -16,12 +19,12 @@ import org.koin.test.inject
 import retrofit2.Retrofit
 
 class NetworkTest : KoinTest {
-  val baseUrl: String by lazy { get(named("BASE_URL")) as String }
-  val interceptor: HttpLoggingInterceptor by inject()
-  val httpClient: OkHttpClient by inject()
-  val moshi: Moshi by inject()
-  val retrofit: Retrofit by inject()
-  val apiService: NasaApiInterface by inject()
+  private val baseUrl: String by lazy { get(named("BASE_URL")) as String }
+  private val interceptor: HttpLoggingInterceptor by inject()
+  private val httpClient: OkHttpClient by inject()
+  private val moshi: Moshi by inject()
+  private val retrofit: Retrofit by inject()
+  private val apiService: NasaApiInterface by inject()
 
   @Before
   fun setup() {
@@ -33,5 +36,35 @@ class NetworkTest : KoinTest {
   @After
   fun tearDown() {
     stopKoin()
+  }
+
+  @Test
+  fun `test base url created`() {
+    assertEquals(baseUrl, "https://api.nasa.gov/planetary/")
+  }
+
+  @Test
+  fun `test interceptor created`() {
+    assertNotNull(interceptor)
+  }
+
+  @Test
+  fun `test httpClient created`() {
+    assertNotNull(httpClient)
+  }
+
+  @Test
+  fun `test moshi created`() {
+    assertNotNull(moshi)
+  }
+
+  @Test
+  fun `test retrofit created`() {
+    assertNotNull(retrofit)
+  }
+
+  @Test
+  fun `test apiService created`() {
+    assertNotNull(apiService)
   }
 }
