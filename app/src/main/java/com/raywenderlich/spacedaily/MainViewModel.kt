@@ -37,7 +37,7 @@ interface MainView {
 }
 
 class MainViewModel : ViewModel(),KoinComponent {
-  val nasaApiInterface:NasaApiInterface by inject()
+  private val nasaApiInterface:NasaApiInterface by inject()
   var view: MainView? = null
 
   fun getDailyPhoto() {

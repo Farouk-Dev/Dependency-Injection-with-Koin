@@ -31,7 +31,7 @@ import org.koin.core.context.startKoin
 
 class SpaceApp : Application() {
 
-val defaultCurrentActivityListener:DefaultCurrentActivityListener by inject()
+ private val defaultCurrentActivityListener:DefaultCurrentActivityListener by inject()
 
   override fun onCreate() {
     super.onCreate()
